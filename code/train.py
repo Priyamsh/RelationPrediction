@@ -76,6 +76,7 @@ evaluation_settings = settings['Evaluation']
 general_settings.put('EntityCount', len(entities))
 general_settings.put('RelationCount', len(relations))
 general_settings.put('EdgeCount', len(train_triplets))
+general_settings.put('MaxIterations',200)
 
 encoder_settings.merge(shared_settings)
 encoder_settings.merge(general_settings)
@@ -280,5 +281,6 @@ optimizer = build_tensorflow(loss, optimizer_weights, optimizer_parameters, opti
 optimizer.set_session(model.session)
 
 optimizer.fit(train_triplets, validation_data=valid_triplets)
+scorer.compute_scores(test_triplets[0:500]).summarize()
 #scorer.dump_all_scores(valid_triplets, 'dumps/subjects.valid', 'dumps/objects.valid')
 #scorer.dump_all_scores(test_triplets, 'dumps/subjects.test', 'dumps/objects.test')
