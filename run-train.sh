@@ -15,6 +15,9 @@ ARGUMENT_STRING="--settings "$SETTINGS_PATH" --dataset "$DATASET_PATH
 
 source $VIRTUALENV_PATH"/bin/activate"
 
-$VIRTUALENV_PATH"/bin/python3.5" -u $TRAIN_PATH $ARGUMENT_STRING
+pip install tensorflow==1.13.1
+pip install theano
+
+$VIRTUALENV_PATH"/bin/python3.7" -u $TRAIN_PATH $ARGUMENT_STRING
 
 deactivate
