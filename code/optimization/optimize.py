@@ -1,3 +1,5 @@
+import sys
+sys.path.append(r"/content/RelationPrediction/code/optimization")
 import tensorflow_backend.algorithms as tensorflow_algorithms
 import theano_backend.algorithms as theano_algorithms
 import shared.algorithms as shared_algorithms
